@@ -1,13 +1,65 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: lighter;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 70px;
+  background-color: whitesmoke;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 2px solid rgb(255, 52, 42);
+}
+
+.rayo-logo {
+  height: 60px;
+  animation: opacityStart 2s normal;
+}
+
+@keyframes opacityStart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+main {
+  margin-top: 20px;
+  min-height: 80vh;
+}
+.technologies {
+  display: flex;
+  justify-content: center;
+}
+
+.technology {
+  margin: 30px;
+  transform: scale(3.5);
+  transition: color 0.5s ease-out;
+}
+
+.technology:hover {
+  transform: scale(4);
+  color: tomato;
+}
+
+footer {
+  margin-top: 30px;
+  width: 100%;
+  background-color: rgb(232, 187, 56);
+  height: 60px;
+  color: black;
+  border-top: 2px solid rgb(255, 52, 42);
+}
+.footer-social a {
+  color: black;
+  transition: color 0.5s ease-out;
+}
+.footer-social a:hover {
+  color: rgb(255, 52, 42);
 }
