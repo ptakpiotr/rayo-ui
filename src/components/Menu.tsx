@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const StyledMenu = styled.div`
   position: relative;
@@ -29,6 +30,7 @@ const StyledElem = styled.li`
 `;
 
 function Menu() {
+  const selec = useSelector((st: any) => st.account.value);
   return (
     <StyledMenu className="container">
       <StyledUl className="row">
@@ -44,6 +46,15 @@ function Menu() {
         <StyledElem className="col">
           <Link to="/about">About</Link>
         </StyledElem>
+        {selec.token !== null && selec.token.length < 10 ? (
+          <StyledElem className="col">
+            <Link to="/login">Login</Link>
+          </StyledElem>
+        ) : (
+          <StyledElem className="col">
+            <Link to="/logout">Logout</Link>
+          </StyledElem>
+        )}
       </StyledUl>
     </StyledMenu>
   );
