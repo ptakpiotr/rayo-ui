@@ -1,3 +1,4 @@
+import internal from "stream";
 import { EphemeralKeyInfo } from "tls";
 
 export interface IGalleryItem {
@@ -58,4 +59,25 @@ export interface LoginModel {
 
 export interface IGlobalState {
   token: string;
+}
+export interface IAllNews {
+  news: INews[];
+}
+
+export interface INews {
+  id: number;
+  title: string;
+  photoUrl: string;
+  content: string;
+  author: string;
+  dateOfCreation: Date;
+}
+
+export interface IComment {
+  id: number;
+  likes: number;
+  dislikes: number;
+  author: string;
+  content: string;
+  newsId: number;
 }

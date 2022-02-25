@@ -1,11 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { INews } from "../Types";
 
-interface Props {
-  url: string;
-  description: string;
-  href: string;
-}
+type IProps = INews;
 
 const StyledDiv = styled.div`
   margin-bottom: 30px;
@@ -33,12 +30,17 @@ const StyledPara = styled.figcaption`
   border-bottom: 1px solid rgb(255, 52, 42);
 `;
 
-function GalleryItem({ url, description, href }: Props) {
+function GalleryItem({ id, photoUrl, title }: IProps) {
   return (
     <StyledDiv>
       <StyledImg>
-        <img src={url} alt={description} />
-        <StyledPara>{description}</StyledPara>
+        <img src={photoUrl} alt={title} />
+        <StyledPara>
+          {title}{" "}
+          <a href={`singleNews/${id}`} target="_blank" rel="noreferrer">
+            ...
+          </a>
+        </StyledPara>
       </StyledImg>
     </StyledDiv>
   );

@@ -32,6 +32,34 @@ main {
   margin-top: 20px;
   min-height: 80vh;
 }
+
+hr {
+  width: 70vw;
+  color: darkslategray;
+  transition: width 0.5s ease-out;
+}
+
+.img-news {
+  max-width: 70vw;
+}
+
+.comment-wrapper {
+  margin-left: 20px;
+  width: 25vw;
+  min-height: 400px;
+  background-color: darkslategray;
+  color: whitesmoke;
+}
+
+.comment-single {
+  color: whitesmoke;
+  padding: 10px;
+}
+
+.comment-add input {
+  width: 100%;
+}
+
 .technologies {
   display: flex;
   justify-content: center;
@@ -62,4 +90,17 @@ footer {
 }
 .footer-social a:hover {
   color: rgb(255, 52, 42);
+}
+@media (max-width: 542px) {
+  .img-news {
+    max-width: 94vw;
+  }
+  .comment-wrapper {
+    margin: 0px;
+    margin-bottom: 20px;
+    width: 94vw;
+  }
+  hr {
+    width: 94vw;
+  }
 }

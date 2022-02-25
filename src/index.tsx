@@ -9,6 +9,7 @@ import "./index.css";
 import { Provider } from "react-redux";
 import {
   ApolloClient,
+  ApolloLink,
   ApolloProvider,
   HttpLink,
   InMemoryCache,
@@ -21,11 +22,24 @@ const store = configureStore({
   },
 });
 
+const httpLink = new HttpLink({
+  uri: "https://localhost:7090/graphql",
+});
+
+const authLink = new ApolloLink((operation, forward) => {
+  const token = localStorage.getItem("authToken");
+
+  operation.setContext({
+    headers: {
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  });
+
+  return forward(operation);
+});
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: "https://localhost:7090/graphql",
-  }),
+  link: authLink.concat(httpLink),
 });
 
 render(

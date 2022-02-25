@@ -1,37 +1,19 @@
+import { useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
-import { IGalleryItem } from "../Types";
-
+import { NewsQuery } from "../graphql/Query";
+import { INews } from "../Types";
 import GalleryItem from "./GalleryItem";
 
 function Gallery() {
-  const [galleryItems, setGalleryItems] = useState<IGalleryItem[]>([]);
+  const [galleryItems, setGalleryItems] = useState<INews[]>([]);
   const [currentItem, setCurrentItem] = useState<number>(0);
+  const { data } = useQuery(NewsQuery);
 
   useEffect(() => {
-    //call an api with axios :)
-    let items: IGalleryItem[] = [
-      {
-        id: "item1",
-        url: "http://localhost:3000/bird.jpg",
-        description: "First training",
-        href: "",
-      },
-      {
-        id: "item2",
-        url: "http://localhost:3000/erik.jpg",
-        description: "Second training",
-        href: "",
-      },
-      {
-        id: "item3",
-        url: "http://localhost:3000/bird.jpg",
-        description: "Third training",
-        href: "",
-      },
-    ];
-
-    setGalleryItems(items);
-  }, []);
+    if (data) {
+      setGalleryItems(data.news);
+    }
+  }, [data]);
 
   useEffect(() => {
     var inter = setInterval(() => {

@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import { useDispatch } from "react-redux";
 import { account } from "./features/account";
 import Logout from "./components/Logout";
+import SingleNews from "./components/SingleNews";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/news">
             <News />
+          </Route>
+          <Route path="/singleNews/:id">
+            <SingleNews />
           </Route>
           <Route path="/about">
             <About />

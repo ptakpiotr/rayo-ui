@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
+import { INews } from "../Types";
 
+type IProps = INews;
 const StyledDiv = styled.div`
   z-index: 0;
   background-image: url("http://localhost:3000/bird.jpg");
@@ -28,7 +30,7 @@ const StyledPara = styled.p`
   transition: opacity 0.5s ease-out;
 `;
 
-function DynamicCard() {
+function DynamicCard({ title, photoUrl, id }: IProps) {
   const styleddiv = useRef<HTMLDivElement>(null);
   const styledpara = useRef<HTMLParagraphElement>(null);
 
@@ -47,8 +49,16 @@ function DynamicCard() {
       ref={styleddiv}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseOver}
+      style={{
+        backgroundImage: `url(${photoUrl})`,
+      }}
     >
-      <StyledPara ref={styledpara}>Test text</StyledPara>
+      <StyledPara ref={styledpara}>
+        {title}{" "}
+        <a href={`singleNews/${id}`} target="_blank" rel="noreferrer">
+          ...
+        </a>
+      </StyledPara>
     </StyledDiv>
   );
 }

@@ -32,7 +32,7 @@ function Login() {
           }
         )
         .then((dt) => {
-          sessionStorage.setItem("authToken", dt.data.message);
+          localStorage.setItem("authToken", dt.data.message);
           dispatch(
             account({
               type: "LOGIN",

@@ -10,7 +10,6 @@ const accountSlice = createSlice({
   initialState: { value: accountInitState },
   reducers: {
     account: (state, action) => {
-      console.log(action);
       state.value = {
         token: action.payload.token,
       };

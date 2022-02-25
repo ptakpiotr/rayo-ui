@@ -5,7 +5,7 @@ import { account } from "../features/account";
 function Logout() {
   const dispatch = useDispatch();
   useEffect(() => {
-    sessionStorage.removeItem("authToken");
+    localStorage.removeItem("authToken");
     dispatch(
       account({
         type: "LOGOUT",
