@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const StandingsQuery = gql`
   query {
-    standings {
+    standings(order: { id: DESC }) {
       id
       competition {
         name
