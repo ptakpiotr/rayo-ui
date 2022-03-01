@@ -23,7 +23,7 @@ const store = configureStore({
 });
 
 const httpLink = new HttpLink({
-  uri: "https://localhost:7090/graphql",
+  uri: "http://rayoinfo.azurewebsites.net/graphql",
 });
 
 const authLink = new ApolloLink((operation, forward) => {

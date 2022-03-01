@@ -6,7 +6,7 @@ function Navbar() {
     <header>
       <Link to="/">
         <img
-          src="http://localhost:3000/rayo_logo.png"
+          src="https://upload.wikimedia.org/wikipedia/en/1/17/Rayo_Vallecano_logo.png"
           className="rayo-logo"
           alt="Rayo logo"
         />

@@ -21,7 +21,7 @@ function Login() {
 
       axios
         .post(
-          "https://localhost:7015/api/Account/login",
+          "http://rayoauth.azurewebsites.net/api/Account/login",
           {
             ...toSubmit,
           },

@@ -37,11 +37,7 @@ function Gallery() {
         justifyContent: "center",
       }}
     >
-      {galleryItems.length > 1 ? (
-        <GalleryItem {...galleryItems[currentItem]} />
-      ) : (
-        <></>
-      )}
+      <GalleryItem {...galleryItems[currentItem]} />
     </div>
   );
 }
