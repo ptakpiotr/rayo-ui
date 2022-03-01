@@ -5,6 +5,7 @@ import { account } from "../features/account";
 function Logout() {
   const dispatch = useDispatch();
   useEffect(() => {
+    localStorage.removeItem("email");
     localStorage.removeItem("authToken");
     dispatch(
       account({

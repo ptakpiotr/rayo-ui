@@ -59,6 +59,7 @@ export interface LoginModel {
 
 export interface IGlobalState {
   token: string;
+  email: string;
 }
 export interface IAllNews {
   news: INews[];

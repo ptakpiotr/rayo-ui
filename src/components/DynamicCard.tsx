@@ -54,10 +54,7 @@ function DynamicCard({ title, photoUrl, id }: IProps) {
       }}
     >
       <StyledPara ref={styledpara}>
-        {title}{" "}
-        <a href={`singleNews/${id}`} target="_blank" rel="noreferrer">
-          ...
-        </a>
+        {title} <a href={`singleNews/${id}`}>...</a>
       </StyledPara>
     </StyledDiv>
   );

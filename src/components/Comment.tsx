@@ -4,12 +4,13 @@ import { CommentQuery } from "../graphql/Query";
 import { IComment } from "../Types";
 import AddComment from "./AddComment";
 import SingleComment from "./SingleComment";
-import { HubConnectionBuilder } from "@microsoft/signalr";
+import { HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
+import Push from "push.js";
 
 function Comment() {
   //temporarily set type to any --> no comments in the database yet
   const [comms, setComms] = useState<IComment[]>([]);
-  const [conn, setConn] = useState<any>();
+  const [conn, setConn] = useState<HubConnection>();
 
   const { data, error } = useQuery(CommentQuery, {
     variables: {
@@ -34,6 +35,13 @@ function Comment() {
       })
       .catch((err) => console.error(err));
 
+    connection.on("CommentAdded", (msg) => {
+      let msgParsed = JSON.parse(msg);
+      Push.create(`New message from ${msg.author}`, {
+        body: msgParsed.content,
+      });
+      setComms((prev) => [...prev, msgParsed]);
+    });
     setConn(connection);
   }, []);
 
@@ -50,9 +58,13 @@ function Comment() {
 
   return (
     <div className="comment-wrapper">
-      <AddComment />
+      <AddComment conn={conn as HubConnection} />
       {comms.map((c) => (
-        <SingleComment key={`comm${c.id}${c.newsId}`} {...c} />
+        <SingleComment
+          key={`comm${c.id}${c.newsId}`}
+          {...c}
+          conn={conn as HubConnection}
+        />
       ))}
     </div>
   );

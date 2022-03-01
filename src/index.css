@@ -54,10 +54,25 @@ hr {
 .comment-single {
   color: whitesmoke;
   padding: 10px;
+  margin: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgb(255, 52, 42);
 }
 
 .comment-add input {
   width: 100%;
+}
+
+.comment-button {
+  background-color: rgba(255, 52, 42, 0.5);
+  color: whitesmoke;
+  padding: 5px;
+  border: none;
+  margin: 5px;
+}
+
+.comment-button:hover {
+  background-color: rgb(232, 187, 56);
 }
 
 .technologies {

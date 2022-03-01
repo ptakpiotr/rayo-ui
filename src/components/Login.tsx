@@ -33,10 +33,12 @@ function Login() {
         )
         .then((dt) => {
           localStorage.setItem("authToken", dt.data.message);
+          localStorage.setItem("email", email);
           dispatch(
             account({
               type: "LOGIN",
               token: dt.data.message,
+              email: email,
             })
           );
         })

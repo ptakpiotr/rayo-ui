@@ -3,6 +3,7 @@ import { IGlobalState } from "../Types";
 
 const accountInitState: IGlobalState = {
   token: "",
+  email: "",
 };
 
 const accountSlice = createSlice({
@@ -12,6 +13,7 @@ const accountSlice = createSlice({
     account: (state, action) => {
       state.value = {
         token: action.payload.token,
+        email: action.payload.email,
       };
     },
   },
