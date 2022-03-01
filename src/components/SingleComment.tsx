@@ -1,6 +1,5 @@
-import { useQuery } from "@apollo/client";
-import { HubConnection } from "@microsoft/signalr";
 import React from "react";
+import { HubConnection } from "@microsoft/signalr";
 import { IComment } from "../Types";
 
 type IProps = IComment & {
@@ -9,8 +8,6 @@ type IProps = IComment & {
 
 function SingleComment({ id, author, content, dislikes, likes, conn }: IProps) {
   const handleClick = (type: string) => {
-    console.log("WORKS");
-
     let obj = {
       id,
       likes: type === "LIKE" ? likes + 1 : likes,

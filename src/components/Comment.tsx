@@ -8,7 +8,6 @@ import { HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
 import Push from "push.js";
 
 function Comment() {
-  //temporarily set type to any --> no comments in the database yet
   const [comms, setComms] = useState<IComment[]>([]);
   const [conn, setConn] = useState<HubConnection>();
 
@@ -48,7 +47,6 @@ function Comment() {
   useEffect(() => {
     if (data) {
       setComms(data.newsComments);
-      console.log(data);
     }
 
     if (error) {

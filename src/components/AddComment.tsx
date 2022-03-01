@@ -12,8 +12,6 @@ function AddComment({ conn }: IProps) {
   const { id } = useParams<any>();
   const [s, setS] = useState<string | null>(localStorage.getItem("email"));
   const handleClick = () => {
-    console.log(s);
-
     if (comment.length > 1) {
       conn.invoke(
         "AddComment",
