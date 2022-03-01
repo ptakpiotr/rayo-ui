@@ -91,6 +91,13 @@ footer {
 .footer-social a:hover {
   color: rgb(255, 52, 42);
 }
+.infobox {
+  background-color: darkslategrey;
+  color: whitesmoke;
+  height: 100%;
+  text-align: center;
+}
+
 @media (max-width: 542px) {
   .img-news {
     max-width: 94vw;
@@ -101,6 +108,9 @@ footer {
     width: 94vw;
   }
   hr {
+    width: 94vw;
+  }
+  .infobox {
     width: 94vw;
   }
 }

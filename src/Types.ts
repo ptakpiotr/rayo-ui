@@ -81,3 +81,17 @@ export interface IComment {
   content: string;
   newsId: number;
 }
+
+export interface ISummary {
+  title: string;
+  displaytitle: string;
+  originalimage: IOriginalimage;
+  extract: string;
+  extract_html: string;
+}
+
+export interface IOriginalimage {
+  source: string;
+  width: number;
+  height: number;
+}
