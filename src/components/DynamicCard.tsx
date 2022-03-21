@@ -5,7 +5,6 @@ import { INews } from "../Types";
 type IProps = INews;
 const StyledDiv = styled.div`
   z-index: 0;
-  background-image: url("http://localhost:3000/bird.jpg");
   background-size: cover;
   background-position-x: -50px;
   margin: 20px;

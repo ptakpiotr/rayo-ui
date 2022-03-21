@@ -19,7 +19,7 @@ function Comment() {
 
   useEffect(() => {
     let connection = new HubConnectionBuilder()
-      .withUrl("http://rayoinfo.azurewebsites.net/main", {
+      .withUrl("https://rayoinfo.azurewebsites.net/main", {
         accessTokenFactory: () => {
           return localStorage.getItem("authToken") as string;
         },

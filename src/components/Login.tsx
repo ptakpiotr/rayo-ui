@@ -21,7 +21,7 @@ function Login() {
 
       axios
         .post(
-          "http://rayoauth.azurewebsites.net/api/Account/login",
+          "https://rayoauth.azurewebsites.net/api/Account/login",
           {
             ...toSubmit,
           },
