@@ -56,7 +56,7 @@ function Standings() {
           </tbody>
         </table>
       ) : (
-        "No standings"
+        <div className="loader mx-auto"></div>
       )}
     </div>
   );

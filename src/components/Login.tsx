@@ -8,6 +8,7 @@ function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [rememberMe, setRememberMe] = useState<boolean>(false);
+  const [successLogin, setSuccessLogin] = useState<boolean>(false);
 
   const dispatch = useDispatch();
   const handleSubmit = (e: React.FormEvent) => {
@@ -34,6 +35,7 @@ function Login() {
         .then((dt) => {
           localStorage.setItem("authToken", dt.data.message);
           localStorage.setItem("email", email);
+          setSuccessLogin(true);
           dispatch(
             account({
               type: "LOGIN",
@@ -52,6 +54,13 @@ function Login() {
 
   return (
     <form className="form container" onSubmit={handleSubmit}>
+      <div className="row m-2">
+        {successLogin && (
+          <div className="alert alert-success" role="alert">
+            Succesfully logged in
+          </div>
+        )}
+      </div>
       <div className="row m-2">
         <input
           type="email"

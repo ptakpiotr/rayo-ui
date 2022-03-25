@@ -113,6 +113,23 @@ footer {
   text-align: center;
 }
 
+.loader {
+  width: 300px;
+  height: 300px;
+  border: 2px solid tomato;
+  border-top-color: maroon;
+  animation: 1.5s infinite ease-out rotate;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  from {
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 542px) {
   .img-news {
     max-width: 94vw;

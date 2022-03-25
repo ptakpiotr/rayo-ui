@@ -6,6 +6,7 @@ import Infobox from "./Infobox";
 import Summary from "./Summary";
 
 function Team() {
+  const [loading, setLoading] = useState<boolean>(true);
   const [summaryData, setSummaryData] = useState<ISummary>({
     displaytitle: "",
     extract: "",
@@ -25,6 +26,7 @@ function Team() {
         const summary = await page.summary();
 
         setSummaryData(summary);
+        setLoading(false);
       } catch (err) {
         console.error(err);
       }
@@ -34,17 +36,21 @@ function Team() {
 
   return (
     <main>
-      <Row>
-        <Col sm={8}>
-          <Summary {...summaryData} />
-        </Col>
-        <Col sm={4}>
-          <Infobox
-            image={summaryData.originalimage.source}
-            page={"http://www.rayovallecano.es/"}
-          />
-        </Col>
-      </Row>
+      {loading ? (
+        <div className="loader mx-auto"></div>
+      ) : (
+        <Row>
+          <Col sm={8}>
+            <Summary {...summaryData} />
+          </Col>
+          <Col sm={4}>
+            <Infobox
+              image={summaryData.originalimage.source}
+              page={"http://www.rayovallecano.es/"}
+            />
+          </Col>
+        </Row>
+      )}
     </main>
   );
 }
